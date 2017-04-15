@@ -1,0 +1,28 @@
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+
+ymaps.ready(init);
+    var myMap;
+
+    function init(){     
+        myMap = new ymaps.Map("ymap", {
+            center: [55.758792, 37.638162],
+            zoom: 17,
+            controls: []
+        });
+
+        myPlacemark = new ymaps.Placemark(
+        	[55.758792, 37.638162],
+            { 
+                hintContent: 'Главный офис Макси',
+                balloonContent: 'Главный офис Макси'
+            },
+            {
+                iconLayout: 'default#image',
+                iconImageHref: '/fact/images/ymap-mark.png',
+                iconImageSize: [64, 74],
+                iconImageOffset: [-20, -68],
+            }
+        );
+
+        myMap.geoObjects.add(myPlacemark);
+ }

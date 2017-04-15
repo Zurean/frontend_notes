@@ -1,0 +1,12 @@
+$("input[type='text'], input[type='password'], textarea").focus(function() {
+	var 
+		place = $(this).attr("placeholder");
+	$(this).prop("data-placeholder",place);
+	$(this).attr("placeholder","");
+});
+
+$("input[type='text'], input[type='password'], textarea").blur(function() {
+	var 
+		place = $(this).prop("data-placeholder");
+		$(this).attr("placeholder",place);
+});

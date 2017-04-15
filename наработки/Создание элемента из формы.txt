@@ -1,0 +1,24 @@
+Создание элемента инфоблока из html формы:
+
+<?
+include($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");
+
+CModule::IncludeModule("iblock");
+
+$el = new CIBlockElement;
+
+$arLoadProductArray = array(
+  "IBLOCK_ID"      => #IBLOCK_ID#,
+  "NAME"   => htmlspecialchars($_POST["name"]),
+  "PROPERTY_VALUES" => array(
+  	"#PROP_CODE#" => #VALUE#
+  )
+ );
+
+ if($PRODUCT_ID = $el->Add($arLoadProductArray)) {
+    LocalRedirect("/?send=ok");
+ } 
+ else {
+    LocalRedirect("/?err=".$el->LAST_ERROR);
+ }
+?>

@@ -1,0 +1,29 @@
+<div class="punkt styled-checkbox">
+	<input type="checkbox" id="kozha"> 
+	<label for="kozha">Кожа</label>
+</div>
+
+<div class="punkt styled-checkbox">
+	<input type="checkbox" id="meh"> 
+	<label for="meh">Мех</label>
+</div>
+
+<div class="punkt styled-checkbox">
+	<input type="checkbox" id="tekstil"> 
+	<label for="tekstil">Текстиль</label>
+</div>
+
+.styled-checkbox input + label {
+    padding-left: 22px;
+    height: 16px;
+    display: inline-block;
+    line-height: 16px;
+    vertical-align: middle;
+    cursor: pointer;
+    outline: none;
+
+    background: url(../images/sprite.png) -10px -385px no-repeat;
+}
+.styled-checkbox input:checked + label {
+    background-position: -10px -406px;
+}

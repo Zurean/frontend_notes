@@ -1,0 +1,22 @@
+// Исчезновение по ESC
+$(document).keyup(function(e){
+	if (e.keyCode == 27) {
+		$('.add-review-popup:visible .close').click();
+		$('.callback-popup:visible .close').click();
+		$('.reviews-popup:visible .close').click();
+	}
+});
+
+// Исчезновение по клику вне
+
+$(document).click(function(e){
+	if ($('.add-review-popup:visible').length && !($(e.target).closest('.title').length || $(e.target).closest('.container').length)){
+		$('.add-review-popup .close').click();
+	}
+	if ($('.callback-popup:visible').length && !($(e.target).closest('.wrapper').length || $(e.target).closest('.container').length)){
+		$('.callback-popup .close').click();
+	}
+	if ($('.reviews-popup:visible').length && !($(e.target).closest('.reviews').length || $(e.target).closest('.container').length)){
+		$('.reviews-popup .close').click();
+	}
+});

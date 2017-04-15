@@ -1,0 +1,35 @@
+Отправка почтового сообщения из html формы:
+
+Настройки:
+
+Тип события:
+	Название, код
+
+	Список переменных:
+		#FIELD_1#
+		...
+		#FIELD_N#
+ 
+ Шаблон сообщения:
+ 	От кого: #DEFAULT_EMAIL_FROM#
+ 	Кому: <some@mail.ru>
+
+ 	Текст письма:
+ 		Сайт #SITE_NAME#
+
+ 		Поле: #FIELD_1#
+ 		Поле: #FIELD_N#
+
+php:
+
+<?
+include($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");
+
+$arEventFields = array(
+  "FIELD_1" => $POST["FIELD_1"],
+  ...
+  "FIELD_N" => $POST["FIELD_N"]
+  );
+
+  CEvent::SendImmediate("EVENT_TYPE","site_id",$arEventFields);
+?>

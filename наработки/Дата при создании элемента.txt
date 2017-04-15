@@ -1,0 +1,15 @@
+Свойство типа Дата/время при создании элемента инфоблока:
+
+
+<?
+ //значение даты должно быть приведено к формату "DD.MM.YYYY HH:MI:SS"
+
+// если оно передается в другом, например из input[type='date'], нужно перевести
+
+$post_date = $DB->FormatDate($post_date,"YYYY-MM-DD HH:MI:SS","DD.MM.YYYY HH:MI:SS");
+
+$date = MakeTimeStamp($pos_date, "DD.MM.YYYY HH:MI:SS");
+
+$fin_date = ConvertTimeStamp($date,"FULL");
+?>	
+

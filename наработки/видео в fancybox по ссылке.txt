@@ -1,0 +1,11 @@
+* Необходим: jquery.fancybox.media-helper.js
+* Вид ссылки: <a href="https://vimeo.com/1952844" class="video">Bla-bla video</a>
+* Вызов для метода с media helper:
+
+$(".video").fancybox({
+	openEffect  : 'none',
+	closeEffect : 'none',
+	helpers : {
+		media : true
+	}
+});

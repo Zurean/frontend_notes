@@ -1,0 +1,60 @@
+function formatPrice (price)
+{
+   var result = '';
+   if (typeof(price) != 'undefined')   
+   {
+      if (typeof(price) == 'number')
+         price = price.toString();
+      if (price.length > 0)
+      {
+         var testPrice = /^([\d]+)|([\d]+\.|,[\d]+)$/;
+         if (testPrice.test(price))
+         {
+            var str, integral, decimal, delim, regex; 
+            
+            regex = /\.|,[\d]+$/ig;
+            delimPos = price.search(regex);
+            if (delimPos >= 0)
+            {
+               integral = price.substr(0, delimPos);
+               decimal = price.substr(delimPos+1);
+            }
+            else
+            {
+               integral = price;
+               decimal = '';
+            }
+            
+            str = integral;
+            var blockSize = 3;
+            if (str.length > blockSize)
+            {
+               while (str.length > 0)
+               {
+                  if (str.length > blockSize)
+                  {
+                     result = ' ' + str.substr((blockSize*(-1)), blockSize) + result;
+                     str = str.substr(0, (str.length - blockSize));
+                  }
+                  else
+                  {
+                     result = str + result;
+                     str = '';
+                  }
+               }
+               result = decimal.length > 0 ? result+'.'+decimal : result;
+            }
+            else
+            {
+               result = str + (decimal.length > 0 ? '.'+decimal : '');
+            }
+         }
+         else
+         {
+            result = price;
+         }
+      }
+   }
+   
+   return result;
+}

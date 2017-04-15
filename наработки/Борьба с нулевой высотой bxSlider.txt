@@ -1,0 +1,5 @@
+var slider = $("#.bx-slider").bxSlider();
+
+setTimeout(function(){
+    slider.reloadSlider();
+},10);

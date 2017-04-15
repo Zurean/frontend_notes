@@ -1,0 +1,82 @@
+Подход к работе:
+	* первым делом изучить все макеты, которые поступили сразу:
+		** прикинут время на каждую из имеющихся страниц (на основе прошлых проектов)
+		** определить количество уникальных 
+				*** блоков,
+				*** кнопок,
+				*** форм,
+		** присвоить им универсальные классы
+		** примерно определить какие плагины для какого функционала будут использоваться
+			*** выбрать из вариантов если есть
+			*** по возможности прикинуть вероятные конфликты
+
+	* заранее потребовать от дизайнера все svg иконки и файлы шрифтов (пока не пришлет можно заниматься анализом проекта)
+	* писать анимацию на css3, а не на jquery (по возможности)
+	* использовать css препроцессор при разработке
+
+Подход к верстке:
+	* необходимо отделять преставление, универсальные объекта от его контекстного представления.
+	* при верстке блока использовать box-sizing: border-box, чтобы padding считались автоматом от ширины
+	* с кнопками решить как быть - делать отступ padding или line-height?
+	* при верстке пиктограмм использовать svg иконки и делать из них шрифт
+	* как верстать шапку и футер?
+	* футер - если прижимать к низу абсолютом, плохо сочетается с ui-select - при раскрытии списка утер прыгает
+	
+	* Структура сss файла:
+		** font-face
+		** tags - стили для тэгов
+		** buttons - стили для кнопок (всего, выполняющего роль кнопок)
+		** bloсks - стили для блоков
+		** forms - стили для форм и их полей
+		** любые другие сущности, которые потребуется добавить, например кастомизированные из bootstrap
+		** misc - служебные классы, используемые для разметки
+
+		** layout - разметка страниц и контекстные стили для каждого конкретного блока на странице (каждый блок окрудать и писать название)
+		
+	* адаптивность описывается в отдельном файле, названно по категории устройства
+	* адаптивные css содержат, по необходимости, те же разделы в том же порядке
+
+Используемые фреймворки и плагины:
+	* https://validator.w3.org/
+	* https://jigsaw.w3.org/css-validator/
+	
+	* font generator - http://www.fontsquirrel.com/tools/webfont-generator
+	* jquery - https://jquery.com/download/
+	* noUISlider - http://refreshless.com/nouislider/ - мобильные ползунки на чистом js
+	* bootstrap - http://getbootstrap.com/customize/
+	* Fuel UX - http://getfuelux.com/javascript.html - дополнительные интерфейсы к bootstrap
+	* fancybox - http://fancyapps.com/fancybox/#license
+	* BxSlider - http://bxslider.com/
+	* jquery ui - http://jqueryui.com/download/ (не работает с мобильниками)
+	* jquery mobile - http://jquerymobile.com/download-builder/ (мобильный интерфейс, но стилизует все принудительно)
+	* masked input - http://digitalbush.com/projects/masked-input-plugin/
+	* isotope - http://isotope.metafizzy.co/
+	* tablesorter - http://tablesorter.com/docs/
+	* animate.css - https://daneden.github.io/animate.css/
+	* css checkbox - http://www.csscheckbox.com/
+	* dotdotdot - http://dotdotdot.frebsite.nl/
+	* http://editor.method.ac/ - редактор svg
+	* Modernizr - https://modernizr.com/ - определяет поддержку браузера
+	* Webshims - http://afarkas.github.io/webshim/demos/ - полифил для большинства html5, css3 в старых браузерах
+	* RudeBox - http://www.rudebox.org.ua/background-site-effect-parallax-jquery/ - parallax фон на jquery
+	* http://monster.gostats.ru/resolutions.xml?id=4267 - разрешения мониторов
+	* ColorScheme - http://colorscheme.ru/ - сочетание цветов
+	* DiscoCover - http://discovercolor.ru/ - цвета
+	* https://bootstrapbay.com/blog/free-stock-photos/ - бесплатные стоки фотографий
+	* http://www.flaticon.com/ - бесплатные коллекции иконок
+	* http://image.online-convert.com/ru/convert-to-svg - ковертер png2svg, который нормально воспринимает сервис изгтовления шрифтов
+	* http://ipadpeek.com/ - тестирование iphone
+	* http://www.color-hex.com/ - палитры цветов компаний
+	* https://github.com/RobinHerbots/Inputmask - маска для ввода
+	* https://www.artlebedev.ru/tools/case/ - сервис по изменению регистра текста
+
+
+Что необходимо изучить?
+	* работу компонента Каталог на Битриксе
+   +* работу с Git-ом, как работать с проектом с помощью Git
+	* css3 анимацию
+
+
+
+
+

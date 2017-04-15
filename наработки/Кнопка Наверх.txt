@@ -1,0 +1,19 @@
+function toTopVis(point) {
+	var x = $(window).scrollTop();
+	console.log(x);
+
+	(x > point) ? $(".to-top").fadeIn() : $(".to-top").fadeOut();
+}
+
+$(function() {
+	toTopView(0);
+
+	$(window).scroll(function() {
+		toTopView(0);
+	});
+
+
+	$(".to-top").click(function() {
+		$('html, body').animate({scrollTop: 0},500);
+	});
+});

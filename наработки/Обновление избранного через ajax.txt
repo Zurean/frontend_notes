@@ -1,0 +1,51 @@
+<?
+  require_once($_SERVER['DOCUMENT_ROOT']. "/bitrix/modules/main/include/prolog_before.php");
+
+  // get current user info
+  global $USER;
+
+  $rs_user = $USER->GetByID($USER->GetID());
+  $arUser = $rs_user->Fetch();
+  $strFav = "";
+  $bRes = false;
+  $bExist = false;
+
+  $user = new CUser;
+
+  // if users favlist id empty create new array
+  if(!$arUser["UF_FAV"]) {
+  	$strFav = $_POST["id"];
+
+  	//update favlist
+  	$bRes = $user->Update($arUser["ID"],array("UF_FAV"=>$strFav));
+  }
+  // if favlist is not empty
+  else {
+  	$arFav = explode(",",$arUser["UF_FAV"]);
+
+  	// check current element already exists in list
+  	foreach($arFav as $key => $fav) {
+  		if($_POST["id"] ==  $fav) {
+  			$bExist = true;
+  			unset($arFav[$key]);
+  			break;
+  		}
+  	}
+
+  	// if it is delete it
+  	if($bExist) {
+		$strFav = implode(",",$arFav);
+		$bRes = $user->Update($arUser["ID"],array("UF_FAV"=>$strFav));
+
+  	}
+  	// if it isn't add it
+  	else {
+  		$arFav[] = $_POST["id"];
+  		$strFav = implode(",",$arFav);
+
+  		$bRes = $user->Update($arUser["ID"],array("UF_FAV"=>$strFav));
+  	}
+   }
+
+  if($bRes) exit(json_encode($_POST["id"]));
+?>

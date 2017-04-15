@@ -1,0 +1,17 @@
+html -----------------------------------------------------
+<div class="img-adapter-wrap">
+	<div class="img-adapter">
+		<img src="..." alt="...">
+	</div>
+</div>
+----------------------------------------------------------
+css ------------------------------------------------------
+.img-adapter-wrap {
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+ }
+ .img-adapter {
+     margin: 0 -9999px;
+ }
+ 
